@@ -19,8 +19,15 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService) {
   }
 
+  // 箭头函数
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    // 箭头函数  相当于
+    // var _that = this;
+    // this.heroService.getHeroes().subscribe(function (heroes) {
+    //   _that.heroes = heroes;
+    // });
   }
 
   ngOnInit() {
