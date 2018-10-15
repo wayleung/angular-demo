@@ -23,8 +23,8 @@ export class HeroService {
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-      tap(heroes=>this.log('fetched heroes')),
-      catchError(this.handleError('getHeroes',[])));
+      tap(heroes => this.log('fetched heroes')),
+      catchError(this.handleError('getHeroes', [])));
   }
 
   getHero(id: number): Observable<Hero> {
@@ -42,7 +42,7 @@ export class HeroService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
